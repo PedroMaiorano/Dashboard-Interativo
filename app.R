@@ -112,7 +112,7 @@ ui <- dashboardPage( skin = 'red',
                              
                              menuItem('Apresentação', icon = icon("youtube"), href="https://youtube.com"),
                              
-                             menuItem('Git',icon = icon("file-code"), href="https://github.com"),
+                             menuItem('Git',icon = icon("file-code"), href="https://github.com/PedroMaiorano/Dashboard-Interativo"),
                              
                              menuItem('Banco de Dados',icon = icon("file-csv"),href="https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-acidentes"),
                              
