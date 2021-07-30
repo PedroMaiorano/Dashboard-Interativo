@@ -29,11 +29,11 @@ library(av)
 
 # Chamando todos os dados
 
-d2020 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Área de Trabalho\\Dashboard - VED\\Dados\\datatran2020.csv", TRUE, ';')
+d2020 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Ãrea de Trabalho\\Dashboard - VED\\Dados\\datatran2020.csv", TRUE, ';')
 
-d2019 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Área de Trabalho\\Dashboard - VED\\Dados\\datatran2019.csv", TRUE, ';')
+d2019 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Ãrea de Trabalho\\Dashboard - VED\\Dados\\datatran2019.csv", TRUE, ';')
 
-d2018 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Área de Trabalho\\Dashboard - VED\\Dados\\datatran2018.csv", TRUE, ';')
+d2018 <- read.csv("C:\\Users\\zabuz\\OneDrive\\Ãrea de Trabalho\\Dashboard - VED\\Dados\\datatran2018.csv", TRUE, ';')
 
 # Remanejando e arrumando os dados
 
@@ -44,7 +44,7 @@ df$data_inversa = as.Date(df$data_inversa, format = "%Y-%m-%d")
 ## Mapa com os estados
 br1=read_state()
 # View(df)
-## Função para obter as modas
+## FunÃ§Ã£o para obter as modas
 
 getmode <- function(v) {
   uniqv <- unique(v)
@@ -55,28 +55,28 @@ getmode <- function(v) {
 
 
 ui <- dashboardPage( skin = 'red',
-                     #cabeçalho
+                     #cabeÃ§alho
                      dashboardHeader(
-                       title = 'Acidentes de Trânsito',
+                       title = 'Acidentes de TrÃ¢nsito',
                        dropdownMenu(type = "messages",
                                     messageItem(
-                                      from = 'Polícia Rodoviária',
-                                      message= 'Sem celular no trânsito',
+                                      from = 'PolÃ­cia RodoviÃ¡ria',
+                                      message= 'Sem celular no trÃ¢nsito',
                                       icon= icon("user"),
                                       time = "Agora"
                                     ) ),
                        #Menu(Canto superior direito)
                        dropdownMenu(type = "notification",
                                     notificationItem(
-                                      text='Direção sem distração',
+                                      text='DireÃ§Ã£o sem distraÃ§Ã£o',
                                       icon= icon("mobile")
                                     ),
                                     notificationItem(
-                                      text='Use o cinto de segurança',
+                                      text='Use o cinto de seguranÃ§a',
                                       icon= icon("user-shield")
                                     ),
                                     notificationItem(
-                                      text='Não ultrapasse a velocidade máxima',
+                                      text='NÃ£o ultrapasse a velocidade mÃ¡xima',
                                       icon= icon("exclamation-triangle")
                                     )
                        ),
@@ -88,7 +88,7 @@ ui <- dashboardPage( skin = 'red',
                                     )
                        )
                      ),
-                     #Opções lado esquerdo
+                     #OpÃ§Ãµes lado esquerdo
                      dashboardSidebar(
                        sidebarMenu(
                          dateRangeInput(inputId = "data",
@@ -107,16 +107,16 @@ ui <- dashboardPage( skin = 'red',
                                   tabName = "Mapa",
                                   icon = icon("map-marked")),
                          
-                         menuItem("Gráficos",
-                                  tabName = "Gráficos",
+                         menuItem("GrÃ¡ficos",
+                                  tabName = "GrÃ¡ficos",
                                   icon = icon("chart-bar")),
                          
-                         menuItem("Estatísticas",
+                         menuItem("EstatÃ­sticas",
                                   tabName = "stat",
                                   icon = icon("table")),
                          
                          
-                         menuItem('Apresentação', icon = icon("youtube"), href="https://youtube.com"),
+                         menuItem('ApresentaÃ§Ã£o', icon = icon("youtube"), href="https://youtube.com"),
                          
                          menuItem('Git',icon = icon("file-code"), href="https://github.com/PedroMaiorano/Dashboard-Interativo"),
                          
@@ -128,7 +128,7 @@ ui <- dashboardPage( skin = 'red',
                          
                        )),
                      
-                     #Corpo, (O que vai aparecer conforme muda as opções do lado esquerdo)
+                     #Corpo, (O que vai aparecer conforme muda as opÃ§Ãµes do lado esquerdo)
                      dashboardBody(
                        tabItems(
                          
@@ -146,7 +146,7 @@ ui <- dashboardPage( skin = 'red',
                          
                          
                          tabItem(
-                           tabName = 'Gráficos', h2("Gráficos"),
+                           tabName = 'GrÃ¡ficos', h2("GrÃ¡ficos"),
                            box(
                              title = "Acidentes por estado",
                              status = "danger",
@@ -157,14 +157,14 @@ ui <- dashboardPage( skin = 'red',
                            
                            box(
                              
-                             title = "As 10 maiores causas de acidente de trânsito",
+                             title = "As 10 maiores causas de acidente de trÃ¢nsito",
                              status = "danger",
                              solidHeader = TRUE,
                              collapsible = TRUE,
                              plotlyOutput("plotcausa",width = '100%')),
                            
                            box(
-                             title = "Classificação do acidente conforme a situação das vítimas",
+                             title = "ClassificaÃ§Ã£o do acidente conforme a situaÃ§Ã£o das vÃ­timas",
                              status = "danger",
                              solidHeader = TRUE,
                              collapsible = TRUE,
@@ -172,7 +172,7 @@ ui <- dashboardPage( skin = 'red',
                            
                            
                            box(
-                             title = "Série temporal de acidentes",
+                             title = "SÃ©rie temporal de acidentes",
                              status = "danger",
                              solidHeader = TRUE,
                              collapsible = TRUE,
@@ -182,42 +182,42 @@ ui <- dashboardPage( skin = 'red',
                          
                          
                          tabItem(
-                           tabName = 'stat', h2("Dados estatísticos sobre os acidentes"),
+                           tabName = 'stat', h2("Dados estatÃ­sticos sobre os acidentes"),
                            fluidRow(
                              valueBox(
                                uiOutput("acidentes"),"Acidentes", color = "green",width = 5),
                              
                              valueBox(
-                               uiOutput("fasedia"),"Média de acidentes diários", color = "lime",width = 5),
+                               uiOutput("fasedia"),"MÃ©dia de acidentes diÃ¡rios", color = "lime",width = 5),
                              
                              valueBox(
                                uiOutput("acidentesf"),"Acidentes Fatais", color = "blue",width = 5),
                              
                              valueBox(
-                               uiOutput("cmetere"),"Média de acidentes fatais diários", color = "light-blue",width = 5),
+                               uiOutput("cmetere"),"MÃ©dia de acidentes fatais diÃ¡rios", color = "light-blue",width = 5),
                              
                              valueBox(
                                uiOutput("feridosl"),"Feridos Leves", color = "yellow",width = 5),
                              
                              valueBox(
-                               uiOutput("tipoacidente"),"Média de feridos leves diários", color = "orange",width = 5),
+                               uiOutput("tipoacidente"),"MÃ©dia de feridos leves diÃ¡rios", color = "orange",width = 5),
                              
                              valueBox(
                                uiOutput("feridosg"),"Feridos Graves", color = "navy",width = 5),
                              
                              valueBox(
-                               uiOutput("macausa"),"Média de feridos graves diários", color = "teal",width = 5),
+                               uiOutput("macausa"),"MÃ©dia de feridos graves diÃ¡rios", color = "teal",width = 5),
                              
                              valueBox(
                                uiOutput("mortes"),"Mortes", color = "black",width = 5),
                              
                              valueBox(
-                               uiOutput("mecausa"),"Média de mortes por dia", color = "black",width = 5),
+                               uiOutput("mecausa"),"MÃ©dia de mortes por dia", color = "black",width = 5),
                              
                              valueBox(
-                               uiOutput("fday"),"É a fase do dia com mais acidentes", color = "red",width = 5),
+                               uiOutput("fday"),"Ã‰ a fase do dia com mais acidentes", color = "red",width = 5),
                              valueBox(
-                               uiOutput("dday"),"É o dia da semana com mais acidentes", color = "fuchsia",width = 5)
+                               uiOutput("dday"),"Ã‰ o dia da semana com mais acidentes", color = "fuchsia",width = 5)
                              
                              
                            )
@@ -245,7 +245,7 @@ server <- function(input, output, session){
   output$map <- renderLeaflet({
     #Preparando os dados
     b = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
-    c = (b[b$classificacao_acidente =="Com Vítimas Fatais",])
+    c = (b[b$classificacao_acidente =="Com VÃ­timas Fatais",])
     cc= b %>% group_by(uf) %>% summarise(feridos=sum(feridos))
     d = b %>% group_by(uf) %>% summarise(mortos=sum(mortos))
     #Juntando os dados com o mapa
@@ -285,13 +285,13 @@ server <- function(input, output, session){
       addLegend(pal = pal,
                 values = ~Freq,
                 opacity =0.9,
-                title = "Número de acidentes",
+                title = "NÃºmero de acidentes",
                 position = "bottomleft")
     
     
  })
   
-  #Gráficos
+  #GrÃ¡ficos
   
   output$plotuf <- renderPlotly({
     df1 = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
@@ -310,7 +310,7 @@ server <- function(input, output, session){
       scale_fill_hue(direction = 1) +
       theme_minimal()+
       xlab("Estado")+
-      ylab ("Frequência relativa de acidentes (%)")+
+      ylab ("FrequÃªncia relativa de acidentes (%)")+
       labs(title = "Acidentes por estado")+
       theme(legend.position = "none")
     ggplotly(paretochart)
@@ -341,7 +341,7 @@ server <- function(input, output, session){
     classificacao <- data.frame(table(df3$classificacao_acidente))
     colnames(classificacao)<- c("Clas", "freq")
     fig<-plot_ly(classificacao, labels = ~Clas, values = ~freq, type = 'pie')
-    fig<- fig %>% layout(title="Classificação de acidentes de trânsito",legend=list(title=list(text='<b> Legenda </b>')))
+    fig<- fig %>% layout(title="ClassificaÃ§Ã£o de acidentes de trÃ¢nsito",legend=list(title=list(text='<b> Legenda </b>')))
     fig
   })
   
@@ -361,13 +361,13 @@ server <- function(input, output, session){
     ggplotly(linechart)
     
   })
-  #Estatísticas
+  #EstatÃ­sticas
   ##Lado Esquerdo
   output$acidentes <- renderText({b = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
   nrow(b)})
   
   output$acidentesf <- renderText({b = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
-  c <- (b[b$classificacao_acidente =="Com Vítimas Fatais",])
+  c <- (b[b$classificacao_acidente =="Com VÃ­timas Fatais",])
   nrow(c)})
   
   output$feridosl <-renderText({b = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
@@ -386,7 +386,7 @@ server <- function(input, output, session){
   round(length(b$feridos_leves)/length(unique(b$data_inversa)),2)})
   
   output$cmetere <-renderText({b=subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
-  c=(b[b$classificacao_acidente =="Com Vítimas Fatais",])
+  c=(b[b$classificacao_acidente =="Com VÃ­timas Fatais",])
   round(length(c$data_inversa)/length(unique(c$data_inversa)),2)})
   
   output$tipoacidente <-renderText({b = subset(df, df$data_inversa>= input$data[1] & df$data_inversa<= input$data[2])
