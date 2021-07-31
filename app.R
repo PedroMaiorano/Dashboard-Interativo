@@ -116,7 +116,7 @@ ui <- dashboardPage( skin = 'red',
                                   icon = icon("table")),
                          
                          
-                         menuItem('Apresentação', icon = icon("youtube"), href="https://youtube.com"),
+                         menuItem('Apresentação', icon = icon("youtube"), href="https://youtu.be/Ghvcs-wNNMA"),
                          
                          menuItem('Git',icon = icon("file-code"), href="https://github.com/PedroMaiorano/Dashboard-Interativo"),
                          
